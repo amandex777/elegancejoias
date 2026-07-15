@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegance Joias - Coleção de Anéis & Medidor</title>
+    <style>
+        /* Estilos Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f9f6f0;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 2rem 1rem;
+            border-bottom: 1px solid #e5dcd0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #8a7355;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Títulos das Seções */
+        .secao-titulo {
+            text-align: center;
+            color: #4a3e31;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            position: relative;
+        }
+
+        .secao-titulo::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: #8a7355;
+            margin: 0.5rem auto 0;
+        }
+
+        /* Grade de Produtos */
+        .vitrine {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card-anel {
+            background-color: #ffffff;
+            border: 1px solid #eae1d4;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 1.5rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-anel:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(138, 115, 85, 0.1);
+        }
+
+        .foto-anel {
+            width: 100%;
+            height: 220px;
+            background-color: #f4eee6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            color: #a8947a;
+            font-weight: bold;
+        }
+
+        .card-anel h2 {
+            font-size: 1.3rem;
+            color: #4a3e31;
+            margin-bottom: 0.5rem;
+        }
+
+        .descricao {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .preco {
+            font-size: 1.4rem;
+            color: #8a7355;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-comprar {
+            display: inline-block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #8a7355;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-comprar:hover {
+            background-color: #6e5b43;
+        }
+
+        /* Seção do Medidor e Contato */
+        .flex-secoes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .bloco-conteudo {
+            background-color: #ffffff;
+            border: 1px solid #eae1d4;
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        /* Medidor de Anel Interativo */
+        .medidor-area {
+            text-align: center;
+        }
+
+        .slider-controle {
+            margin: 1.5rem 0;
+        }
+
+        .slider-controle input {
+            width: 80%;
+            accent-color: #8a7355;
+        }
+
+        .circulo-medidor {
+            width: 150px;
+            height: 150px;
+            border: 3px solid #8a7355;
+            border-radius: 50%;
+            margin: 2rem auto;
+            transition: width 0.1s ease, height 0.1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #fff;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .circulo-medidor::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background-color: rgba(138, 115, 85, 0.3);
+        }
+
+        .resultado-tamanho {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4a3e31;
+        }
+
+        /* Formulário de Pedido */
+        .form-grupo {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-grupo label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+            color: #555;
+            font-weight: 600;
+        }
+
+        .form-grupo input, .form-grupo select {
+            width: 100%;
+            padding: 0.7rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-grupo input:focus, .form-grupo select:focus {
+            outline: none;
+            border-color: #8a7355;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #4a3e31;
+            color: #eae1d4;
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>ELEGANCE JOIAS</h1>
+        <p>Encontre o anel perfeito para eternizar os seus melhores momentos</p>
+    </header>
+
+    <main class="container">
+        
+        <!-- Vitrine de Produtos -->
+        <h2 class="secao-titulo">Nossa Coleção</h2>
+        <div class="vitrine">
+            <article class="card-anel">
+                <img src="foto3.htm">
+                <h2>Anel Solitário Classic</h2>
+                <p class="descricao">Confeccionado em ouro amarelo 18k com uma pedra central brilhante.</p>
+                <p class="preco">R$ 1.890,00</p>
+                <button class="btn-comprar" onclick="selecionarProduto('Anel Solitário Classic')">Encomendar</button>
+            </article>
+
+            <article class="card-anel">
+                <img src="imagens.jpg">
+                <h2>Anel de noivado de ouro</h2>
+                <p class="descricao">Aliança cravejada em ouro branco e acabamento polido artesanal.</p>
+                <p class="preco">R$ 2.450,00</p>
+                <button class="btn-comprar" onclick="selecionarProduto('Aliança Eternal Love')">Encomendar</button>
+            </article>
+
+            <article class="card-anel">
+                 <img src="foto2.jpg"
+                <p class="descricao">anel de ouro cravejado</p>
+                <p class="preco">R$ 290,00</p>
+                <button class="btn-comprar" onclick="selecionarProduto('Anel Prata Minimalist')">Encomendar</button>
+            </article>
+        </div>
+
+        <!-- Seções Inferiores Interativas -->
+        <div class="flex-secoes">
+            
+            <!-- Simulador/Medidor de Tamanho -->
+            <section class="bloco-conteudo medidor-area">
+                <h2 class="secao-titulo">Descubra seu Tamanho</h2>
+                <p style="font-size: 0.9rem; color: #666;">Coloque um anel que você já tenha na tela e ajuste o controle até o círculo interno da imagem preencher o aro interno do seu anel.</p>
+                
+                <div class="circulo-medidor" id="anelCirculo"></div>
+                
+                <div class="slider-controle">
+                    <input type="range" id="tamanhoSlider" min="10" max="30" value="16" oninput="atualizarMedidor()">
+                </div>
+                <p class="resultado-tamanho">Tamanho Sugerido: <span id="tamanhoTexto">16</span></p>
+            </section>
+
+            <!-- Formulário de Atendimento/Pedido -->
+            <section class="bloco-conteudo">
+                <h2 class="secao-titulo">Faça seu Pedido</h2>
+                <form id="pedidoForm" onsubmit="enviarWhatsApp(event)">
+                    <div class="form-grupo">
+                        <label for="nome">Seu Nome:</label>
+                        <input type="text" id="nome" required placeholder="Digite seu nome completo">
+                    </div>
+                    <div class="form-grupo">
+                        <label for="produto">Produto Escolhido:</label>
+                        <select id="produto" required>
+                            <option value="">Selecione uma joia...</option>
+                            <option value="Anel Solitário Classic">Anel Solitário Classic - R$ 1.890,00</option>
+                            <option value="Aliança Eternal Love">Aliança Eternal Love - R$ 2.450,00</option>
+                            <option value="Anel Prata Minimalist">Anel Prata Minimalist - R$ 290,00</option>
+                        </select>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="tamanhoAnel">Tamanho do Aro:</label>
+                        <input type="number" id="tamanhoAnel" min="10" max="30" required placeholder="Ex: 16">
+                    </div>
+                    <button type="submit" class="btn-comprar">Enviar Pedido via WhatsApp</button>
+                </form>
+            </section>
+
+        </div>
+
+    </main>
+
+    <footer>

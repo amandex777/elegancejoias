@@ -1,0 +1,346 @@
+
+  <header>
+    <h1>Galeria de Anéis</h1>
+    <p>Modelos elegantes e sofisticados</p>
+  </header>
+
+  <section class="galeria">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=1000" alt="Anel de ouro">
+      <div class="info">
+        <h3>Anel de Ouro</h3>
+        <p>Design clássico e sofisticado.</p>
+        <a href="#" class="botao">Comprar</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1603974372039-adc49044b6bd?q=80&w=1000" alt="Anel de diamante">
+      <div class="info">
+        <h3>Anel de Diamante</h3>
+        <p>Brilho intenso e acabamento premium.</p>
+        <a href="#" class="botao">Comprar</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1000" alt="Anel luxo">
+      <div class="info">
+        <h3>Anel Luxo</h3>
+        <p>Modelo moderno para ocasiões especiais.</p>
+        <a href="#" class="botao">Comprar</a>
+      </div>
+    </div>
+
+  </section>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lux Prime</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Inter',sans-serif;
+      background:#0b0b0d;
+      color:#fff;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at top right, rgba(212,175,55,.18), transparent 30%),
+        radial-gradient(circle at bottom left, rgba(255,255,255,.05), transparent 25%);
+      z-index:-1;
+    }
+
+    header{
+      position:fixed;
+      width:100%;
+      top:0;
+      left:0;
+      padding:25px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      backdrop-filter:blur(12px);
+      background:rgba(10,10,10,.45);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      z-index:1000;
+    }
+
+    .logo{
+      font-size:32px;
+      font-family:'Cormorant Garamond',serif;
+      font-weight:700;
+      color:#d4af37;
+      letter-spacing:2px;
+    }
+
+    nav a{
+      color:#fff;
+      text-decoration:none;
+      margin-left:35px;
+      font-size:15px;
+      transition:.3s;
+      position:relative;
+    }
+
+    nav a::after{
+      content:'';
+      position:absolute;
+      left:0;
+      bottom:-6px;
+      width:0;
+      height:1px;
+      background:#d4af37;
+      transition:.3s;
+    }
+
+    nav a:hover{
+      color:#d4af37;
+    }
+
+    nav a:hover::after{
+      width:100%;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:0 8%;
+      position:relative;
+    }
+
+    .hero-content{
+      max-width:900px;
+    }
+
+    .hero h1{
+      font-size:80px;
+      line-height:1;
+      font-family:'Cormorant Garamond',serif;
+      margin-bottom:25px;
+      background:linear-gradient(to right,#fff,#d4af37);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero p{
+      color:#d7d7d7;
+      font-size:20px;
+      line-height:1.8;
+      margin-bottom:40px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:18px 42px;
+      border:1px solid #d4af37;
+      color:#d4af37;
+      text-decoration:none;
+      border-radius:50px;
+      transition:.4s;
+      font-weight:600;
+      letter-spacing:1px;
+    }
+
+    .btn:hover{
+      background:#d4af37;
+      color:#000;
+      box-shadow:0 0 25px rgba(212,175,55,.5);
+      transform:translateY(-3px);
+    }
+
+    .section{
+      padding:120px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:70px;
+    }
+
+    .section-title h2{
+      font-size:52px;
+      font-family:'Cormorant Garamond',serif;
+      color:#d4af37;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:#aaa;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:24px;
+      padding:40px;
+      transition:.4s;
+      backdrop-filter:blur(8px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:#d4af37;
+      box-shadow:0 20px 40px rgba(0,0,0,.4);
+    }
+
+    .card h3{
+      font-size:28px;
+      margin-bottom:15px;
+      color:#fff;
+      font-family:'Cormorant Garamond',serif;
+    }
+
+    .card p{
+      color:#bbb;
+      line-height:1.8;
+    }
+
+    .lux-banner{
+      margin:120px 8%;
+      border-radius:30px;
+      padding:80px;
+      background:linear-gradient(135deg,#111,#1d1d1d);
+      border:1px solid rgba(212,175,55,.2);
+      text-align:center;
+    }
+
+    .lux-banner h2{
+      font-size:60px;
+      font-family:'Cormorant Garamond',serif;
+      margin-bottom:20px;
+      color:#fff;
+    }
+
+    .lux-banner span{
+      color:#d4af37;
+    }
+
+    footer{
+      padding:40px 8%;
+      border-top:1px solid rgba(255,255,255,.08);
+      text-align:center;
+      color:#888;
+      font-size:14px;
+    }
+
+    @media(max-width:900px){
+      .hero h1{
+        font-size:52px;
+      }
+
+      nav{
+        display:none;
+      }
+
+      .lux-banner h2{
+        font-size:40px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">LUX PRIME</div>
+
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Serviços</a>
+      <a href="#">Portfólio</a>
+      <a href="#">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Elegância. Poder. Exclusividade.</h1>
+
+      <p>
+        Um website premium com visual sofisticado, moderno e luxuoso.
+        Ideal para marcas de alto padrão, empresas exclusivas e projetos premium.
+      </p>
+
+      <a href="#" class="btn">Explorar Agora</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">
+      <h2>Nossos Diferenciais</h2>
+      <p>Design refinado pensado para impressionar.</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <h3>Design Premium</h3>
+        <p>
+          Interface elegante com detalhes dourados, animações suaves
+          e visual cinematográfico.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Alta Performance</h3>
+        <p>
+          Código otimizado para velocidade máxima e experiência fluida
+          em qualquer dispositivo.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Visual Moderno</h3>
+        <p>
+          Estética minimalista de luxo inspirada em marcas exclusivas
+          e tecnologia futurista.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="lux-banner">
+    <h2>Experiência <span>Luxuosa</span> e Moderna</h2>
+    <p style="color:#bbb; margin-top:20px; line-height:1.8;">
+      Crie presença digital de alto nível com um layout elegante,
+      sofisticado e impactante.
+    </p>
+  </div>
+
+  <footer>
+    © 2026 Lux Prime — Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
